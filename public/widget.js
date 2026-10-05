@@ -30,7 +30,9 @@ header{display:flex;flex-shrink:0;align-items:center;justify-content:space-betwe
 .header-title-wrap{display:flex;align-items:center;gap:10px}
 .header-mascot{width:54px;height:34px;object-fit:contain;display:block;flex:0 0 auto}
 h2{font:26px 'DM Serif Display',Georgia,serif;margin:0}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
- .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain}.message{line-height:1.55;padding:10px 12px;border:1px solid #DCDAD1;border-radius:9px;margin:0 20px 12px 0;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin:0 0 12px 20px;background:#00132D;color:#F7F6F2}.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}.message a{color:inherit;text-decoration:underline}
+ .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain}.message{line-height:1.55;padding:10px 12px;border:1px solid #DCDAD1;border-radius:9px;margin:0 20px 12px 0;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin:0 0 12px 20px;background:#00132D;color:#F7F6F2}.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
+.message-mascot{display:block;width:30px;height:20px;object-fit:contain;margin-bottom:6px}
+.message a{color:inherit;text-decoration:underline}
  .controls{padding:12px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain}.status{font-size:12px;line-height:1.4;color:#9C5A3C;min-height:18px;margin:0 0 8px}.entry{display:flex;gap:8px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:10px;font-size:16px}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:10px}
  .notice{font-size:11px;line-height:1.45;color:#615D52;margin:10px 0 6px}.consent{font-size:11px;line-height:1.4;display:flex;gap:6px;align-items:flex-start;margin-bottom:10px}.consent input{margin:2px;min-width:18px;min-height:18px}.links{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:11px}a{color:#00132D}.clear{min-height:30px;padding:4px 6px;font-size:11px}.challenge{max-height:80px;overflow:auto}
  @media(max-width:600px){:host{right:max(12px,env(safe-area-inset-right));bottom:calc(max(var(--mobile-bottom),env(safe-area-inset-bottom)) + var(--quole-bottom-offset,0px))}.panel{width:min(370px,calc(100vw - 24px));height:min(550px,calc(100dvh - 140px - var(--quole-bottom-offset,0px)))}.launcher img{width:72px}.placeholder{width:90px}}
@@ -51,7 +53,17 @@ h2{font:26px 'DM Serif Display',Georgia,serif;margin:0}small{color:#8A8474}heade
  const safeUrl=value=>{try{const url=new URL(value,endpoint);return ['https:','http:'].includes(url.protocol)?url.href:null;}catch{return null;}};
  function add(role,text){
   const el=document.createElement('div');el.className=`message ${role}`;
-  const label=document.createElement('strong');label.textContent=role==='user'?'You':'Quole';el.append(label);
+  if(role==='user'){
+   const label=document.createElement('strong');
+   label.textContent='You';
+   el.append(label);
+  } else {
+   const mascot=document.createElement('img');
+   mascot.className='message-mascot';
+   mascot.alt='';
+   mascot.src=config?.assetUrl || '/quole.png';
+   el.append(mascot);
+  }
   // No model-produced HTML. Only known ecosystem domains become clickable.
   for(const part of text.split(/(https:\/\/[^\s]+|enquiries@qlogue\.com)/g)){
    const clean=part.replace(/[.,;!?)]*$/,'');
