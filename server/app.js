@@ -38,14 +38,21 @@ export function createApp(env = process.env, request = fetch) {
   if (!['/api/config','/api/chat'].includes(url.pathname)) return send(404,{error:'Not found'});
   const origin = req.headers.origin;
   const local = !production && /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin || '');
-  if (!Object.hasOwn(origins,origin || '') && !local) return send(403,{error:'Website origin is not authorised'});
-  res.setHeader('Access-Control-Allow-Origin',origin);
-  res.setHeader('Vary','Origin');
+  const renderPreview = !origin && req.method === 'GET' && url.pathname === '/api/config' && req.headers.host === 'quole.onrender.com';
+
+  if (!Object.hasOwn(origins,origin || '') && !local && !renderPreview) {
+   return send(403,{error:'Website origin is not authorised'});
+  }
+
+  if (origin) {
+   res.setHeader('Access-Control-Allow-Origin',origin);
+   res.setHeader('Vary','Origin');
+  }
   if (req.method === 'OPTIONS') {
    res.writeHead(204,{'Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type'}); return res.end();
   }
   const site = url.searchParams.get('site');
-  if (!Object.hasOwn(openings,site || '') || (!local && origins[origin] !== site)) return send(403,{error:'Website context does not match origin'});
+  if (!Object.hasOwn(openings,site || '') || (!local && !renderPreview && origins[origin] !== site)) return send(403,{error:'Website context does not match origin'});
   if (req.method === 'GET' && url.pathname === '/api/config') return send(200,{
    site,opening:openings[site],assetUrl:env.QUOLE_ASSET_URL || '/quole.png',development:!production,
    fontCssUrl:env.QUOLE_FONT_CSS_URL || null,turnstileSiteKey:env.TURNSTILE_SITE_KEY || null,privacyUrl:env.QUOLE_PRIVACY_URL || '/privacy.html'
