@@ -29,22 +29,22 @@
 header{
   display:flex;
   flex-shrink:0;
-  align-items:flex-start;
+  align-items:center;
   justify-content:space-between;
-  padding:14px 16px 12px;
+  padding:8px 12px;
   border-bottom:1px solid #DCDAD1;
-  background:rgba(98,107,59,0.05)
+  background:#F7F6F2;
 }
 .header-title-wrap{
   display:flex;
   flex-direction:row;
   align-items:center;
-  gap:10px;
+  gap:3px;
   width:max-content;
 }
 .header-mascot{
-  width:72px;
-  height:36px;
+  width:58px;
+  height:30px;
   object-fit:contain;
   display:block;
   margin:0;
@@ -60,7 +60,7 @@ header{
   50%{transform:translateY(-1.5px) rotate(-1deg)}
 }
 
-h2{font:23px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
+h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
  .messages{
   overflow:auto;
   flex:1;
