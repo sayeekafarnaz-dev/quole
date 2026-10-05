@@ -28,6 +28,7 @@
  [hidden]{display:none!important}
 header{
   display:flex;
+  flex:0 0 auto;
   flex-shrink:0;
   align-items:center;
   justify-content:space-between;
@@ -61,7 +62,15 @@ header{
 }
 
 h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
- .messages-wrap{position:relative;flex:1;min-height:0;background:#F5F5EF}
+ .messages-wrap{
+  position:relative;
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  background:#F5F5EF;
+}
 .message-tools{
   position:absolute;
   right:10px;
@@ -89,13 +98,20 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   background:#F7F6F2;
 }
 .messages{
-  overflow:auto;
-  flex:1;
-  min-height:65px;
+  flex:1 1 auto;
+  min-height:0;
+  width:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
   padding:14px 14px 52px;
   overscroll-behavior:contain;
   background:rgba(98,107,59,0.06);
+  scrollbar-gutter:stable;
 }.message{
+  display:block;
+  width:auto;
+  max-width:calc(100% - 20px);
+  min-width:0;
   line-height:1.55;
   padding:12px 14px;
   border:1px solid #DCDAD1;
@@ -103,11 +119,13 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   margin:0 20px 12px 0;
   white-space:pre-wrap;
   overflow-wrap:anywhere;
+  word-break:break-word;
   background:#F7F6F2;
   color:#00132D;
 }
 .message.user{
   margin:0 0 12px 20px;
+  max-width:calc(100% - 20px);
   background:#00132D;
   color:#F7F6F2;
   border-color:#00132D;
@@ -131,7 +149,14 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   margin-left:0;
 }
 .message a{color:inherit;text-decoration:underline}
- .controls{padding:7px 10px 8px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain;background:#F5F5EF}.status{font-size:9px;line-height:1.2;color:#9C5A3C;min-height:11px;margin:0 0 3px}.entry{display:flex;gap:6px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:7px 10px;font:500 13px 'DM Sans',Arial,sans-serif}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:8px 11px}
+ .controls{
+  flex:0 0 auto;
+  padding:7px 10px 8px;
+  border-top:1px solid #DCDAD1;
+  min-height:0;
+  overflow:visible;
+  background:#F5F5EF;
+}.status{font-size:9px;line-height:1.2;color:#9C5A3C;min-height:11px;margin:0 0 3px}.entry{display:flex;gap:6px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:7px 10px;font:500 13px 'DM Sans',Arial,sans-serif}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:8px 11px}
  .notice{font-size:9px;line-height:1.25;color:#6F6A5E;margin:5px 0 3px}.consent{font:500 8.5px 'DM Sans',Arial,sans-serif;line-height:1.2;display:flex;gap:5px;align-items:flex-start;color:#8A8474;margin-top:2px}.consent input{margin:0;min-width:13px;min-height:13px;width:13px;height:13px}
 .consent-bottom{margin-top:2px;padding-top:0;border-top:0;color:#8A8474;font-size:9px;line-height:1.2}
 .consent-bottom a{color:#8A8474}.links{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:11px}a{color:#00132D}.clear{min-height:30px;padding:4px 6px;font-size:11px}.challenge{max-height:80px;overflow:auto}
