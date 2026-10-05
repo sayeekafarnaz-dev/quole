@@ -1,1 +1,39 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quole standalone development preview</title><style>body{font:16px sans-serif;margin:32px;background:#F7F6F2;color:#00132D}a{color:inherit}main{max-width:700px}nav{display:flex;gap:24px}button{padding:12px}footer{margin-top:100vh}</style></head><body><main><h1>Quole development preview</h1><p>This isolated page tests the shared widget. The launcher is a development placeholder awaiting the original Quole glasses. No existing website is modified.</p><nav><a href="?site=qlogue">Qlogue</a><a href="?site=adubio">adubio</a><a href="?site=pruque">PruQue</a></nav><p><a href="?site=qlogue&page=second">Navigate to another page (session history retained)</a></p><label>Existing form control <input aria-label="Existing form control"></label><footer>Scroll check: Quole stays fixed.</footer></main><script>const site=new URLSearchParams(location.search).get('site')||'qlogue';const script=document.createElement('script');script.src='/widget.js';script.dataset.site=site;document.body.append(script);</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quole</title>
+  <style>
+    body{
+      font:16px sans-serif;
+      margin:32px;
+      background:#F7F6F2;
+      color:#00132D;
+    }
+    a{color:inherit}
+    main{max-width:700px}
+    nav{display:flex;gap:24px}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Quole</h1>
+    <p>Qlogue AI Assistant</p>
+
+    <nav>
+      <a href="?site=qlogue">Qlogue</a>
+      <a href="?site=adubio">adubio</a>
+      <a href="?site=pruque">PruQue</a>
+    </nav>
+  </main>
+
+  <script>
+    const site = new URLSearchParams(location.search).get('site') || 'qlogue';
+    const script = document.createElement('script');
+    script.src = '/widget.js';
+    script.dataset.site = site;
+    document.body.append(script);
+  </script>
+</body>
+</html>

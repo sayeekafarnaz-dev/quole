@@ -19,7 +19,7 @@ services:
       - key: TURNSTILE_SECRET_KEY
         sync: false
       - key: QUOLE_ORIGINS
-        value: '{"https://qlogue.com":"qlogue","https://www.qlogue.com":"qlogue","https://adubio.ai":"adubio","https://www.adubio.ai":"adubio","https://pruque.com":"pruque","https://www.pruque.com":"pruque"}'
+        value: '{"https://qlogue.com":"qlogue","https://www.qlogue.com":"qlogue","https://adubio.ai":"adubio","https://www.adubio.ai":"adubio","https://pruque.com":"pruque","https://www.pruque.com":"pruque","https://quole.onrender.com":"qlogue"}'
       - key: QUOLE_PUBLIC_READY
         value: 'true'
       - key: QUOLE_PRIVACY_URL
