@@ -105,7 +105,7 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   overflow-x:hidden;
   padding:14px 14px 52px;
   overscroll-behavior:contain;
-  background:rgba(98,107,59,0.06);
+  background:rgba(98,107,59,0.04);
   scrollbar-gutter:stable;
 }.message{
   display:block;
@@ -126,9 +126,9 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
 .message.user{
   margin:0 0 12px 20px;
   max-width:calc(100% - 20px);
-  background:#00132D;
+  background:#16304D;
   color:#F7F6F2;
-  border-color:#00132D;
+  border-color:#16304D;
 }.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
 .message-mascot{
   display:inline-block;
