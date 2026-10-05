@@ -36,6 +36,12 @@ header{
   border-bottom:1px solid #DCDAD1;
   background:#F7F6F2;
 }
+.header-brand{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:1px;
+}
 .header-title-wrap{
   display:flex;
   flex-direction:row;
@@ -66,10 +72,10 @@ header{
 h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
 .grounding-note{
   display:block;
-  margin:2px 0 0 53px;
+  margin:0;
   color:#8A8474;
   font:500 8px 'DM Sans',Arial,sans-serif;
-  line-height:1.2;
+  line-height:1.1;
   letter-spacing:.01em;
 }header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
  .messages-wrap{
@@ -177,7 +183,7 @@ h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
   .header-mascot{animation:none!important}
 }
  </style>
- <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small class="grounding-note">Grounded in Qlogue-approved knowledge.</small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
+ <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div class="header-brand"><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small class="grounding-note">Grounded in Qlogue-approved knowledge.</small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
  <div class="messages-wrap">
  <div class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
  <div class="message-tools">
