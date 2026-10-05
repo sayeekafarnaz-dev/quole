@@ -72,11 +72,11 @@ header{
 h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
 .grounding-note{
   display:block;
-  margin:1px 0 0 0;
+  margin:2px 0 0 0;
   color:#8A8474;
-  font:500 8px 'DM Sans',Arial,sans-serif;
-  line-height:1;
-  letter-spacing:.01em;
+  font:500 10px 'DM Sans',Arial,sans-serif;
+  line-height:1.1;
+  letter-spacing:.005em;
 }header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
  .messages-wrap{
   position:relative;
