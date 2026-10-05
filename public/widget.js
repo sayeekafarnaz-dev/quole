@@ -180,7 +180,7 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
    const mascot=document.createElement('img');
    mascot.className='message-mascot';
    mascot.alt='';
-   mascot.src=config?.assetUrl || '/quole.png';
+   mascot.src=safeUrl(config?.assetUrl) || `${endpoint}/quole.png`;
 
    const colon=document.createElement('span');
    colon.className='response-colon';
