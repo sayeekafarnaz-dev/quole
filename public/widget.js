@@ -126,9 +126,9 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
 .message.user{
   margin:0 0 12px 20px;
   max-width:calc(100% - 20px);
-  background:#16304D;
-  color:#F7F6F2;
-  border-color:#16304D;
+  background:#E9ECE8;
+  color:#00132D;
+  border-color:#D2D5CF;
 }.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
 .message-mascot{
   display:inline-block;
