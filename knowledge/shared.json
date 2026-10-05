@@ -1,4 +1,57 @@
 [
-  {"id":"ecosystem","source":"User-approved public-facing brief, 2026-10-04","text":"Qlogue is the parent advisory and technology organisation. adubio is Assurance Intelligence: continuous assurance, evidence verification, reasoning provenance and structured challenge. PruQue is Prudential Intelligence: regulatory calculations, capital modelling, regulatory self-assessment and integrated scenario analysis. Websites: https://qlogue.com, https://adubio.ai, https://pruque.com. Product integration does not constitute independent validation. Never imply that adubio automatically provides independent assurance over PruQue."},
-  {"id":"contact","source":"User-approved public-facing brief, 2026-10-04","text":"For Qlogue advisory enquiries, adubio demonstrations and licensing, or registering interest in PruQue, email enquiries@qlogue.com. Pricing, booking availability, commercial commitments and feature availability are not confirmed here. No enquiry-submission action is available. Never claim to have sent or submitted an enquiry."}
+  {
+    "id": "ecosystem",
+    "source": "Qlogue public website and approved public-facing brief, 2026-10-05",
+    "text": "Qlogue is an independent advisory and technology firm specialising in regulatory transformation and review, AI governance, internal audit and assurance, all underpinned by automation. Qlogue combines specialist regulatory expertise, independent challenge and technology-enabled delivery. adubio is Qlogue's assurance intelligence product. PruQue provides grounded prudential intelligence. Websites: https://qlogue.com, https://adubio.ai and https://pruque.com."
+  },
+  {
+    "id": "contact",
+    "source": "Qlogue public website, 2026-10-05",
+    "text": "For Qlogue advisory enquiries, adubio demonstrations or licensing, PruQue interest, or general commercial enquiries, email enquiries@qlogue.com. Quole cannot submit enquiries or contact Qlogue on a user's behalf. Never claim that an enquiry has been sent."
+  },
+  {
+    "id": "services",
+    "source": "Qlogue public website, 2026-10-05",
+    "text": "Qlogue's services include regulatory transformation and review, AI governance, internal audit and assurance. Automation underpins delivery across these areas. Qlogue works on governance, controls, regulatory interpretation, review, challenge and assurance-related problems in regulated financial institutions. For specific scope or commercial enquiries, direct users to enquiries@qlogue.com."
+  },
+  {
+    "id": "adubio",
+    "source": "Qlogue and adubio public materials, 2026-10-05",
+    "text": "adubio is Qlogue's assurance intelligence product. It supports continuous assurance, evidence verification, structured review and challenge, and reasoning provenance. Its purpose is to help make the reasoning behind assurance conclusions more traceable and reviewable. Do not describe adubio as providing automatic independent assurance or independent validation simply because it is integrated with another product."
+  },
+  {
+    "id": "pruque",
+    "source": "Qlogue and PruQue public materials, 2026-10-05",
+    "text": "PruQue stands for Grounded Prudential Intelligence. It focuses on prudential calculations, regulatory self-assessment, capital and liquidity-related analysis, scenario analysis and regulatory readiness. Do not imply production availability or specific features unless they are included in approved records."
+  },
+  {
+    "id": "research",
+    "source": "Qlogue public website, 2026-10-05",
+    "text": "Qlogue publishes research and insights on model risk, AI governance, assurance, regulatory change and reasoning provenance. The site includes fieldnotes, explainers, benchmarks, interactive tools and research content. Users can explore these through the Insights section on https://qlogue.com."
+  },
+  {
+    "id": "interactive-tools",
+    "source": "Qlogue public website, 2026-10-05",
+    "text": "Qlogue's interactive tools include the AI Regulation Standards Check and the MRM Operating Model Lab. The AI Regulation Standards Check assesses a prompt against selected AI regulations and standards. The MRM Operating Model Lab compares model risk management operating-model choices for governing AI systems. These tools are available through the Try it area of the Qlogue website."
+  },
+  {
+    "id": "community",
+    "source": "Qlogue public website, 2026-10-05",
+    "text": "Qlogue has a practitioner community focused on model risk, internal audit, regulatory assurance and AI governance in financial services. The community is intended as a working group for practitioners to exchange knowledge and perspectives. Users can access the Community section from the Qlogue website."
+  },
+  {
+    "id": "privacy",
+    "source": "Qlogue Privacy Notice, 5 October 2026",
+    "text": "Qlogue's Privacy Notice is available at https://qlogue.com/privacy. Alogue Advisory Ltd is the controller for personal data described in the notice. The notice explains how personal information is collected, used and protected across Qlogue websites and services, including Quole. Quole uses the Google Gemini API to generate responses and Cloudflare Turnstile for bot and abuse prevention. Users should not submit confidential, commercially sensitive, special-category or other sensitive information through Quole. Privacy enquiries can be sent to enquiries@qlogue.com. For the full and current notice, direct users to https://qlogue.com/privacy."
+  },
+  {
+    "id": "trust-security",
+    "source": "Qlogue public website and Quole deployment controls, 2026-10-05",
+    "text": "Qlogue publishes trust and security information through its website. Quole uses controlled production origins, Cloudflare Turnstile for abuse prevention, rate limits and server-side API credentials. Do not claim certifications, audits, SOC 2 status or security assurances unless they are explicitly stated in approved public records."
+  },
+  {
+    "id": "navigation",
+    "source": "Qlogue public website, 2026-10-05",
+    "text": "The Qlogue website includes Home, Insights, Services, Products, About, Contact, Try it, Community and Privacy content. If a user asks where to find research, direct them to Insights. If they ask about services, direct them to Services. If they ask about interactive tools, direct them to Try it. If they ask about privacy, direct them to https://qlogue.com/privacy."
+  }
 ]
