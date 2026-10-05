@@ -29,10 +29,9 @@
 header{
   display:flex;
   flex:0 0 auto;
-  flex-shrink:0;
   align-items:center;
   justify-content:space-between;
-  padding:8px 12px;
+  padding:6px 12px;
   border-bottom:1px solid #DCDAD1;
   background:#F7F6F2;
 }
@@ -40,18 +39,19 @@ header{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
-  gap:1px;
+  gap:0;
+  line-height:1;
 }
 .header-title-wrap{
   display:flex;
-  flex-direction:row;
   align-items:center;
-  gap:3px;
+  gap:2px;
   width:max-content;
+  line-height:1;
 }
 .header-mascot{
-  width:50px;
-  height:26px;
+  width:44px;
+  height:24px;
   object-fit:contain;
   display:block;
   margin:0;
@@ -72,10 +72,10 @@ header{
 h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
 .grounding-note{
   display:block;
-  margin:0;
+  margin:1px 0 0 0;
   color:#8A8474;
   font:500 8px 'DM Sans',Arial,sans-serif;
-  line-height:1.1;
+  line-height:1;
   letter-spacing:.01em;
 }header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
  .messages-wrap{
