@@ -131,9 +131,9 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   margin-left:0;
 }
 .message a{color:inherit;text-decoration:underline}
- .controls{padding:12px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain;background:rgba(98,107,59,0.04)}.status{font-size:12px;line-height:1.4;color:#9C5A3C;min-height:18px;margin:0 0 8px}.entry{display:flex;gap:8px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:10px;font-size:16px}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:10px}
- .notice{font-size:11px;line-height:1.45;color:#615D52;margin:10px 0 6px}.consent{font-size:11px;line-height:1.4;display:flex;gap:6px;align-items:flex-start}.consent input{margin:2px;min-width:16px;min-height:16px}
-.consent-bottom{margin-top:10px;padding-top:8px;border-top:1px solid #DCDAD1;color:#8A8474;font-size:10px;line-height:1.35}
+ .controls{padding:8px 10px 9px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain;background:#F5F5EF}.status{font-size:11px;line-height:1.3;color:#9C5A3C;min-height:0;margin:0}.entry{display:flex;gap:6px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:8px 10px;font-size:16px}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:8px 11px}
+ .notice{font-size:9px;line-height:1.25;color:#6F6A5E;margin:5px 0 3px}.consent{font-size:9px;line-height:1.2;display:flex;gap:4px;align-items:flex-start;color:#8A8474}.consent input{margin:0;min-width:13px;min-height:13px;width:13px;height:13px}
+.consent-bottom{margin-top:2px;padding-top:0;border-top:0;color:#8A8474;font-size:9px;line-height:1.2}
 .consent-bottom a{color:#8A8474}.links{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:11px}a{color:#00132D}.clear{min-height:30px;padding:4px 6px;font-size:11px}.challenge{max-height:80px;overflow:auto}
  @media(max-width:600px){:host{right:max(12px,env(safe-area-inset-right));bottom:calc(max(var(--mobile-bottom),env(safe-area-inset-bottom)) + var(--quole-bottom-offset,0px))}.panel{width:min(370px,calc(100vw - 24px));height:min(550px,calc(100dvh - 140px - var(--quole-bottom-offset,0px)))}.launcher img{width:72px}.placeholder{width:90px}}
  @media(prefers-reduced-motion:reduce){
