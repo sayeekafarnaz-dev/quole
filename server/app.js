@@ -95,12 +95,19 @@ export function createApp(env = process.env, request = fetch) {
     body:JSON.stringify({systemInstruction:{parts:[{text:instructions(site)}]},contents,generationConfig:{maxOutputTokens:600,thinkingConfig:{thinkingLevel:'low'}}}),
     signal:AbortSignal.timeout(25000)
    });
-   if (!response.ok) throw new Error('Provider unavailable');
+   if (!response.ok) {
+     const providerError = await response.text();
+     console.error('Gemini API error', response.status, providerError);
+     throw new Error(`Gemini API ${response.status}`);
+   }
    const output=await response.json();
    const answer=output.candidates?.[0]?.content?.parts?.filter(p=>typeof p.text==='string').map(p=>p.text).join('\n').slice(0,4000);
    if(!answer) throw new Error('Empty provider response');
    send(200,{answer});
-  } catch {send(503,{error:'Quole’s AI service is unavailable. Please email enquiries@qlogue.com.'});}
+  } catch (error) {
+    console.error('Quole AI error:', error?.message || error);
+    send(503,{error:'Quole’s AI service is unavailable. Please email enquiries@qlogue.com.'});
+  }
   finally {active--;}
  });
  server.requestTimeout=30000;
