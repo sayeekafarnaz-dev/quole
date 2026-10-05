@@ -1,8 +1,8 @@
 import {readFileSync} from 'node:fs';
 export const openings = {
-  qlogue: "How can I help you find or understand something on Qlogue?",
-  adubio: "How can I help with adubio?",
-  pruque: "How can I help with PruQue?"
+  qlogue: "Ask anything.",
+  adubio: "Ask anything.",
+  pruque: "Ask anything."
 };
 const load = name => JSON.parse(readFileSync(new URL(`../knowledge/${name}.json`, import.meta.url), 'utf8'));
 const shared = load('shared');

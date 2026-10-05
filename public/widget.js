@@ -22,63 +22,41 @@
 :host(.open) .launcher{visibility:hidden}
 :host(.open) .panel{bottom:0}
  .placeholder{display:block;padding:8px;border:1px dashed #8A8474;background:#F7F6F2;font-size:11px;width:110px;line-height:1.4}
- .tooltip{position:absolute;right:0;bottom:100%;background:#00132D;color:#F7F6F2;border-radius:4px;padding:6px 10px;white-space:nowrap;opacity:0;pointer-events:none}
- .launcher:hover .tooltip,.launcher:focus-visible .tooltip{opacity:1}
  .panel{position:absolute;right:0;bottom:calc(100% + 12px);width:370px;height:min(570px,calc(100dvh - 130px));display:flex;flex-direction:column;background:#F5F5EF;border:1px solid #DCDAD1;border-radius:14px;box-shadow:0 8px 32px #00132D26;overflow:hidden}
  [hidden]{display:none!important}
-header{
-  display:flex;
-  flex:0 0 auto;
-  align-items:center;
-  justify-content:space-between;
-  padding:6px 12px;
-  border-bottom:1px solid #DCDAD1;
+
+.floating-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:4;
+  width:34px;
+  height:34px;
+  padding:0;
+  display:grid;
+  place-items:center;
+  border:1px solid #DCDAD1;
+  border-radius:7px;
+  background:rgba(247,246,242,.94);
+  color:#00132D;
+  font-size:18px;
+  line-height:1;
+}
+
+.floating-close:hover{
   background:#F7F6F2;
 }
-.header-brand{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:0;
-  line-height:1;
-}
-.header-title-wrap{
-  display:flex;
-  align-items:center;
-  gap:2px;
-  width:max-content;
-  line-height:1;
-}
-.header-mascot{
-  width:44px;
-  height:24px;
-  object-fit:contain;
-  display:block;
-  margin:0;
-  flex:0 0 auto;
-  transform-origin:center;
-  animation:quoleFloat 7s ease-in-out infinite;
-}
 
 
 
-@keyframes quoleFloat{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-1px)}
-}
-  50%{transform:translateY(-1.5px) rotate(-1deg)}
-}
 
-h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
-.grounding-note{
-  display:block;
-  margin:0;
-  padding-top:1px;
-  color:#8A8474;
-  font:500 10px 'DM Sans',Arial,sans-serif;
-  line-height:1.05;
-  letter-spacing:.005em;
-}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
+
+
+
+
+
+
+header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
  .messages-wrap{
   position:relative;
   flex:1 1 auto;
@@ -120,7 +98,7 @@ h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
   width:100%;
   overflow-y:auto;
   overflow-x:hidden;
-  padding:14px 14px 52px;
+  padding:54px 14px 52px;
   overscroll-behavior:contain;
   background:rgba(98,107,59,0.04);
   scrollbar-gutter:stable;
@@ -184,7 +162,7 @@ h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
   .header-mascot{animation:none!important}
 }
  </style>
- <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div class="header-brand"><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small class="grounding-note">Grounded in Qlogue-approved knowledge.</small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
+ <section class="panel" hidden role="dialog" aria-label="Website assistant" aria-modal="false"><button type="button" class="close floating-close" aria-label="Minimise">−</button>
  <div class="messages-wrap">
  <div class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
  <div class="message-tools">
@@ -201,11 +179,11 @@ h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
    </button>
  </div>
 </div>
- <div class="controls"><p class="status" role="status"></p><div class="challenge"></div><form><div class="entry"><input type="text" maxlength="2000" placeholder="Ask Quole anything..." aria-label="Message to Quole" required><button class="send" type="submit">Send</button></div>
+ <div class="controls"><p class="status" role="status"></p><div class="challenge"></div><form><div class="entry"><input type="text" maxlength="2000" placeholder="Ask anything..." aria-label="Message" required><button class="send" type="submit">Send</button></div>
  <p class="notice">AI-generated. Please don’t share confidential information.</p>
  <label class="consent consent-bottom"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label>
  </form></div></section>
- <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="tooltip">Ask about Qlogue</span><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
+ <button type="button" class="launcher" aria-label="Open assistant" aria-expanded="false"><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
  const $=sel=>shadow.querySelector(sel);
  const panel=$('.panel'), launcher=$('.launcher'), log=$('.messages'), status=$('.status'), input=$('input[type=text]'), consent=$('input[type=checkbox]');
  const safeUrl=value=>{try{const url=new URL(value,endpoint);return ['https:','http:'].includes(url.protocol)?url.href:null;}catch{return null;}};
