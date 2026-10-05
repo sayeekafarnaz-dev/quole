@@ -27,8 +27,21 @@
  .panel{position:absolute;right:0;bottom:calc(100% + 12px);width:370px;height:min(570px,calc(100dvh - 130px));display:flex;flex-direction:column;background:#F7F6F2;border:1px solid #DCDAD1;border-radius:14px;box-shadow:0 8px 32px #00132D26;overflow:hidden}
  [hidden]{display:none!important}
 header{display:flex;flex-shrink:0;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid #DCDAD1}
-.header-title-wrap{display:flex;align-items:center;gap:10px}
-.header-mascot{width:54px;height:34px;object-fit:contain;display:block;flex:0 0 auto}
+.header-title-wrap{display:flex;align-items:center;gap:12px}
+.header-mascot{
+  width:72px;
+  height:40px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 auto;
+  transform-origin:center;
+  animation:quoleFloat 4.8s ease-in-out infinite;
+}
+
+@keyframes quoleFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-2px) rotate(-1.5deg)}
+}
 h2{font:26px 'DM Serif Display',Georgia,serif;margin:0}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
  .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain}.message{line-height:1.55;padding:10px 12px;border:1px solid #DCDAD1;border-radius:9px;margin:0 20px 12px 0;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin:0 0 12px 20px;background:#00132D;color:#F7F6F2}.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
 .message-mascot{display:block;width:30px;height:20px;object-fit:contain;margin-bottom:6px}
@@ -36,7 +49,11 @@ h2{font:26px 'DM Serif Display',Georgia,serif;margin:0}small{color:#8A8474}heade
  .controls{padding:12px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain}.status{font-size:12px;line-height:1.4;color:#9C5A3C;min-height:18px;margin:0 0 8px}.entry{display:flex;gap:8px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:10px;font-size:16px}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:10px}
  .notice{font-size:11px;line-height:1.45;color:#615D52;margin:10px 0 6px}.consent{font-size:11px;line-height:1.4;display:flex;gap:6px;align-items:flex-start;margin-bottom:10px}.consent input{margin:2px;min-width:18px;min-height:18px}.links{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:11px}a{color:#00132D}.clear{min-height:30px;padding:4px 6px;font-size:11px}.challenge{max-height:80px;overflow:auto}
  @media(max-width:600px){:host{right:max(12px,env(safe-area-inset-right));bottom:calc(max(var(--mobile-bottom),env(safe-area-inset-bottom)) + var(--quole-bottom-offset,0px))}.panel{width:min(370px,calc(100vw - 24px));height:min(550px,calc(100dvh - 140px - var(--quole-bottom-offset,0px)))}.launcher img{width:72px}.placeholder{width:90px}}
- @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.launcher[aria-expanded=true] img{transform:none}}
+ @media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .launcher[aria-expanded=true] img{transform:none}
+  .header-mascot{animation:none!important}
+}
  </style>
  <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small></small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
  <div class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
