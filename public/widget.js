@@ -30,10 +30,10 @@
  @media(max-width:600px){:host{right:max(12px,env(safe-area-inset-right));bottom:calc(max(var(--mobile-bottom),env(safe-area-inset-bottom)) + var(--quole-bottom-offset,0px))}.panel{left:12px;top:12px;right:12px;bottom:12px;width:auto;height:auto}.launcher img{width:72px}.placeholder{width:90px}}
  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.launcher[aria-expanded=true] img{transform:none}}
  </style>
- <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><h2>Quole</h2><small>Qlogue AI Assistant</small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
+ <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><h2>Quole</h2><small></small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
  <div class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
  <div class="controls"><p class="status" role="status"></p><div class="challenge"></div><form><label class="consent"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label><div class="entry"><input type="text" maxlength="2000" placeholder="Ask Quole anything..." aria-label="Message to Quole" required><button class="send" type="submit">Send</button></div></form>
- <p class="notice">Quole is an AI assistant. Responses are informational and may require verification. Please do not submit confidential or sensitive information.</p><div class="links"><a href="mailto:enquiries@qlogue.com">Contact Qlogue</a><button type="button" class="clear">Clear conversation</button></div></div></section>
+ <p class="notice">AI-generated. Please don’t share confidential information.</p><div class="links"><a href="mailto:enquiries@qlogue.com">Contact Qlogue</a><button type="button" class="clear">Clear conversation</button></div></div></section>
  <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="tooltip">Ask Quole</span><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
  const $=sel=>shadow.querySelector(sel);
  const panel=$('.panel'), launcher=$('.launcher'), log=$('.messages'), status=$('.status'), input=$('input[type=text]'), consent=$('input[type=checkbox]');
