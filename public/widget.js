@@ -61,11 +61,38 @@ header{
 }
 
 h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
- .messages{
+ .messages-wrap{position:relative;flex:1;min-height:0;background:#626B3B}
+.message-tools{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  z-index:2;
+}
+.message-tools a,
+.message-tools .clear{
+  width:30px;
+  height:30px;
+  min-height:30px;
+  padding:0;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(247,246,242,.55);
+  border-radius:7px;
+  background:rgba(247,246,242,.94);
+  color:#00132D;
+}
+.message-tools a:hover,
+.message-tools .clear:hover{
+  background:#F7F6F2;
+}
+.messages{
   overflow:auto;
   flex:1;
   min-height:65px;
-  padding:14px;
+  padding:14px 14px 52px;
   overscroll-behavior:contain;
   background:#626B3B;
 }.message{
@@ -116,14 +143,24 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
 }
  </style>
  <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small></small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
+ <div class="messages-wrap">
  <div class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
+ <div class="message-tools">
+   <a href="mailto:enquiries@qlogue.com" aria-label="Contact Qlogue" title="Contact Qlogue">
+     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+       <path d="M3 6.5h18v11H3v-11Z" stroke="currentColor" stroke-width="1.6"/>
+       <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+     </svg>
+   </a>
+   <button type="button" class="clear" aria-label="Clear conversation" title="Clear conversation">
+     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+       <path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+     </svg>
+   </button>
+ </div>
+</div>
  <div class="controls"><p class="status" role="status"></p><div class="challenge"></div><form><div class="entry"><input type="text" maxlength="2000" placeholder="Ask Quole anything..." aria-label="Message to Quole" required><button class="send" type="submit">Send</button></div>
- <p class="notice">AI-generated. Please don’t share confidential information.</p><div class="links"><a href="mailto:enquiries@qlogue.com" aria-label="Contact Qlogue" title="Contact Qlogue"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-<path d="M3 6.5h18v11H3v-11Z" stroke="currentColor" stroke-width="1.6"/>
-<path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-</svg></a><button type="button" class="clear" aria-label="Clear conversation" title="Clear conversation"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-<path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></button></div>
+ <p class="notice">AI-generated. Please don’t share confidential information.</p>
  <label class="consent consent-bottom"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label>
  </form></div></section>
  <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="tooltip">Ask Quole</span><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
