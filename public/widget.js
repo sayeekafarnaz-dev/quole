@@ -276,11 +276,14 @@ header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radi
     launcherImg.onerror=()=>{status.textContent='Quole character could not load.';};
     $('.placeholder').replaceWith(launcherImg);
 
-    const headerImg=document.createElement('img');
-    headerImg.className='header-mascot';
-    headerImg.alt='';
-    headerImg.src=src;
-    $('.header-mascot-slot').replaceWith(headerImg);
+    const headerSlot=$('.header-mascot-slot');
+    if(headerSlot){
+      const headerImg=document.createElement('img');
+      headerImg.className='header-mascot';
+      headerImg.alt='';
+      headerImg.src=src;
+      headerSlot.replaceWith(headerImg);
+    }
    }
   }
   if(!config.assetUrl && !config.development){root.remove();return;}
