@@ -10,9 +10,9 @@ services:
         value: production
       - key: HOST
         value: 0.0.0.0
-      - key: ANTHROPIC_API_KEY
+      - key: GEMINI_API_KEY
         sync: false
-      - key: ANTHROPIC_MODEL
+      - key: GEMINI_MODEL
         sync: false
       - key: TURNSTILE_SITE_KEY
         sync: false

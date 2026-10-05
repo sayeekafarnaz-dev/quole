@@ -6,8 +6,8 @@
 2. In Render, choose **New > Blueprint** and connect the repository.
 3. Render reads `render.yaml`, builds the Dockerfile and creates the `quole` web service.
 4. Enter the secret values when prompted / under **Environment**:
-   - `ANTHROPIC_API_KEY`
-   - `ANTHROPIC_MODEL`
+   - `GEMINI_API_KEY`
+   - `GEMINI_MODEL`
    - `TURNSTILE_SITE_KEY`
    - `TURNSTILE_SECRET_KEY`
    - `QUOLE_PRIVACY_URL`
@@ -22,9 +22,9 @@
 
 `HOST=0.0.0.0`
 
-`ANTHROPIC_API_KEY=<secret>`
+`GEMINI_API_KEY=<secret>`
 
-`ANTHROPIC_MODEL=<the Anthropic model you choose>`
+`GEMINI_MODEL=gemini-3.8-flash`
 
 `TURNSTILE_SITE_KEY=<Cloudflare Turnstile site key>`
 

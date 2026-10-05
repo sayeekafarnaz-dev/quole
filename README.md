@@ -12,7 +12,7 @@ cp .env.example .env
 npm start
 ```
 
-Open http://127.0.0.1:4310/demo.html. Use the three site links to preview each context. Without `ANTHROPIC_API_KEY` and `ANTHROPIC_MODEL`, sending displays the service-unavailable fallback. This is not a scripted FAQ: a configured server retrieves approved records and calls Anthropic's Messages API. Select an available model in the Anthropic account; no model availability is assumed. Keys remain server-side. Do not reuse or copy private application environment files.
+Open http://127.0.0.1:4310/demo.html. Use the three site links to preview each context. Without `GEMINI_API_KEY` and `GEMINI_MODEL`, sending displays the service-unavailable fallback. This is not a scripted FAQ: a configured server retrieves approved records and calls Google's Gemini GenerateContent API. Select an available model in the Google AI Studio / Gemini API account; no model availability is assumed. Keys remain server-side. Do not reuse or copy private application environment files.
 
 The launcher currently says **DEV PLACEHOLDER — Replace with original Quole asset**. It is intentionally a labelled rectangle, not a substitute character. Supply the original asset, host it at an approved HTTPS URL and set `QUOLE_ASSET_URL`. The widget renders the asset unchanged. Only a subtle activation tilt is implemented, with reduced-motion handling. Eye movement and blinking await an original layered SVG or approved eye-layer positions; arbitrary animation over a flattened asset would invent details.
 
@@ -60,7 +60,7 @@ No approved PruQue availability matrix exists: its record explicitly prohibits c
 |---|---|
 | `NODE_ENV` | `development` locally; `production` enables fail-closed startup gates. |
 | `HOST`, `PORT` | Default `127.0.0.1:4310`; use the platform-required binding after hosting is confirmed. |
-| `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Server credentials and account-supported model. |
+| `GEMINI_API_KEY`, `GEMINI_MODEL` | Server credentials and account-supported model. |
 | `QUOLE_ORIGINS` | JSON exact origin-to-site map, including confirmed preview origins if needed. HTTPS required in production. |
 | `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | Public browser challenge key and private server verification key. Both required for production. |
 | `QUOLE_ASSET_URL` | Original glasses HTTPS asset; required in production. |
@@ -80,7 +80,7 @@ Counters are in memory and reset on restart. Use **one backend process** with ed
 
 Conversation history is browser session storage, site-specific and tab-scoped, bounded to seven recent turns. It expires after 30 minutes idle while the widget runs or on next widget load, and can be cleared manually. No server conversation database or application conversation logging is used. Browsers may preserve session storage across tab restoration; the idle expiry still applies on load. No analytics integration receives conversation data. Host-page scripts can access session storage: install only on trusted pages and ensure analytics/session-replay tools exclude the widget and storage. The widget cannot control unrelated tools installed by a website owner.
 
-Visitors consent before sending. Messages/history go to Anthropic; Turnstile processes verification/browser information. Confirm provider retention, region, contractual terms, hosting logs and Qlogue's privacy notice before marking production ready. The application cannot enforce external processor deletion. Keep request-body logging, debug payload capture and session replay disabled. The bundled privacy page is a development draft, not an approved legal notice. Reference provider API documentation: https://platform.claude.com/docs/en/api/overview.
+Visitors consent before sending. Messages/history go to Google Gemini; Turnstile processes verification/browser information. Confirm provider retention, region, contractual terms, hosting logs and Qlogue's privacy notice before marking production ready. The application cannot enforce external processor deletion. Keep request-body logging, debug payload capture and session replay disabled. The bundled privacy page is a development draft, not an approved legal notice. Reference provider API documentation: https://ai.google.dev/gemini-api/docs.
 
 ## Testing
 
