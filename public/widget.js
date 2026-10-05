@@ -26,22 +26,42 @@
  .launcher:hover .tooltip,.launcher:focus-visible .tooltip{opacity:1}
  .panel{position:absolute;right:0;bottom:calc(100% + 12px);width:370px;height:min(570px,calc(100dvh - 130px));display:flex;flex-direction:column;background:#F5F5EF;border:1px solid #DCDAD1;border-radius:14px;box-shadow:0 8px 32px #00132D26;overflow:hidden}
  [hidden]{display:none!important}
-header{display:flex;flex-shrink:0;align-items:flex-start;justify-content:space-between;padding:16px;border-bottom:1px solid #DCDAD1;background:rgba(98,107,59,0.05)}
-.header-title-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+header{
+  display:flex;
+  flex-shrink:0;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:14px 16px 12px;
+  border-bottom:1px solid #DCDAD1;
+  background:rgba(98,107,59,0.05)
+}
+.header-title-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:2px;
+  width:max-content;
+}
 .header-mascot{
-  width:88px;
-  height:46px;
+  width:68px;
+  height:32px;
   object-fit:contain;
   display:block;
+  margin:0;
   flex:0 0 auto;
   transform-origin:center;
   animation:quoleFloat 5.2s ease-in-out infinite;
 }
 
-@keyframes quoleFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-2px) rotate(-1.2deg)}}
-  50%{transform:translateY(-2px) rotate(-1.5deg)}
+50%{transform:translateY(-2px) rotate(-1.2deg)}}
+
+@keyframes quoleFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-1.5px) rotate(-1deg)}
 }
-h2{font:22px 'DM Serif Display',Georgia,serif;margin:0;line-height:1.05}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
+
+h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
  .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain;background:rgba(98,107,59,0.07)}.message{line-height:1.55;padding:10px 12px;border:1px solid #DCDAD1;border-radius:9px;margin:0 20px 12px 0;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin:0 0 12px 20px;background:#00132D;color:#F7F6F2}.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
 .message-mascot{display:block;width:40px;height:24px;object-fit:contain;margin-bottom:8px}
 .message a{color:inherit;text-decoration:underline}
