@@ -62,8 +62,41 @@ header{
 }
 
 h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
- .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain;background:rgba(98,107,59,0.07)}.message{line-height:1.55;padding:10px 12px;border:1px solid #DCDAD1;border-radius:9px;margin:0 20px 12px 0;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin:0 0 12px 20px;background:#00132D;color:#F7F6F2}.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
-.message-mascot{display:block;width:40px;height:24px;object-fit:contain;margin-bottom:8px}
+ .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain;background:rgba(98,107,59,0.07)}.message{
+  line-height:1.55;
+  padding:12px 14px;
+  border:1px solid #626B3B;
+  border-radius:9px;
+  margin:0 20px 12px 0;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  background:#626B3B;
+  color:#F7F6F2;
+}
+.message.user{
+  margin:0 0 12px 20px;
+  background:#00132D;
+  color:#F7F6F2;
+  border-color:#00132D;
+}.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
+.message-mascot{
+  display:inline-block;
+  width:38px;
+  height:20px;
+  object-fit:contain;
+  vertical-align:middle;
+  margin:0 3px 2px 0;
+}
+.response-prefix{
+  display:inline-flex;
+  align-items:center;
+  vertical-align:middle;
+  margin-right:5px;
+}
+.response-colon{
+  font-weight:600;
+  margin-left:1px;
+}
 .message a{color:inherit;text-decoration:underline}
  .controls{padding:12px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain;background:rgba(98,107,59,0.04)}.status{font-size:12px;line-height:1.4;color:#9C5A3C;min-height:18px;margin:0 0 8px}.entry{display:flex;gap:8px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:10px;font-size:16px}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:10px}
  .notice{font-size:11px;line-height:1.45;color:#615D52;margin:10px 0 6px}.consent{font-size:11px;line-height:1.4;display:flex;gap:6px;align-items:flex-start}.consent input{margin:2px;min-width:16px;min-height:16px}
@@ -98,11 +131,20 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
    label.textContent='You';
    el.append(label);
   } else {
+   const prefix=document.createElement('span');
+   prefix.className='response-prefix';
+
    const mascot=document.createElement('img');
    mascot.className='message-mascot';
    mascot.alt='';
    mascot.src=config?.assetUrl || '/quole.png';
-   el.append(mascot);
+
+   const colon=document.createElement('span');
+   colon.className='response-colon';
+   colon.textContent=':';
+
+   prefix.append(mascot,colon);
+   el.append(prefix);
   }
   // No model-produced HTML. Only known ecosystem domains become clickable.
   for(const part of text.split(/(https:\/\/[^\s]+|enquiries@qlogue\.com)/g)){
