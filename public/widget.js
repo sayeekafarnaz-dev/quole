@@ -17,7 +17,7 @@
  *{box-sizing:border-box}button,input{font:inherit}button,a,input{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}
  button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #9C5A3C;outline-offset:3px}
  .launcher{display:block;margin-left:auto;border:0;background:transparent;padding:6px;color:#00132D;position:relative;min-height:44px;min-width:44px}
- .launcher img{width:88px;max-height:60px;object-fit:contain;display:block;transition:transform .18s ease}
+ .launcher img{width:72px;max-height:50px;object-fit:contain;display:block;transition:transform .18s ease}
  .launcher[aria-expanded=true] img{transform:rotate(-3deg)}
 :host(.open) .launcher{visibility:hidden}
 :host(.open) .panel{bottom:0}
@@ -44,24 +44,34 @@ header{
   width:max-content;
 }
 .header-mascot{
-  width:58px;
-  height:30px;
+  width:50px;
+  height:26px;
   object-fit:contain;
   display:block;
   margin:0;
   flex:0 0 auto;
   transform-origin:center;
-  animation:quoleFloat 5.2s ease-in-out infinite;
+  animation:quoleFloat 7s ease-in-out infinite;
 }
 
 
 
 @keyframes quoleFloat{
-  0%,100%{transform:translateY(0) rotate(0deg)}
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-1px)}
+}
   50%{transform:translateY(-1.5px) rotate(-1deg)}
 }
 
-h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
+h2{font:20px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}
+.grounding-note{
+  display:block;
+  margin:2px 0 0 53px;
+  color:#8A8474;
+  font:500 8px 'DM Sans',Arial,sans-serif;
+  line-height:1.2;
+  letter-spacing:.01em;
+}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
  .messages-wrap{
   position:relative;
   flex:1 1 auto;
@@ -167,7 +177,7 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   .header-mascot{animation:none!important}
 }
  </style>
- <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small></small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
+ <section class="panel" hidden role="dialog" aria-label="Quole conversation" aria-modal="false"><header><div><div class="header-title-wrap"><span class="header-mascot-slot"></span><h2>Quole</h2></div><small class="grounding-note">Grounded in Qlogue-approved knowledge.</small></div><button type="button" class="close" aria-label="Minimise Quole">−</button></header>
  <div class="messages-wrap">
  <div class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
  <div class="message-tools">
@@ -188,7 +198,7 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
  <p class="notice">AI-generated. Please don’t share confidential information.</p>
  <label class="consent consent-bottom"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label>
  </form></div></section>
- <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="tooltip">Ask Quole</span><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
+ <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="tooltip">Ask about Qlogue</span><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
  const $=sel=>shadow.querySelector(sel);
  const panel=$('.panel'), launcher=$('.launcher'), log=$('.messages'), status=$('.status'), input=$('input[type=text]'), consent=$('input[type=checkbox]');
  const safeUrl=value=>{try{const url=new URL(value,endpoint);return ['https:','http:'].includes(url.protocol)?url.href:null;}catch{return null;}};
