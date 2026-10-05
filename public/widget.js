@@ -37,15 +37,14 @@ header{
 }
 .header-title-wrap{
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   align-items:center;
-  justify-content:flex-start;
-  gap:2px;
+  gap:10px;
   width:max-content;
 }
 .header-mascot{
-  width:68px;
-  height:32px;
+  width:72px;
+  height:36px;
   object-fit:contain;
   display:block;
   margin:0;
@@ -54,24 +53,31 @@ header{
   animation:quoleFloat 5.2s ease-in-out infinite;
 }
 
-50%{transform:translateY(-2px) rotate(-1.2deg)}}
+
 
 @keyframes quoleFloat{
   0%,100%{transform:translateY(0) rotate(0deg)}
   50%{transform:translateY(-1.5px) rotate(-1deg)}
 }
 
-h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
- .messages{overflow:auto;flex:1;min-height:65px;padding:14px;overscroll-behavior:contain;background:rgba(98,107,59,0.07)}.message{
+h2{font:23px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:44px;padding:8px}
+ .messages{
+  overflow:auto;
+  flex:1;
+  min-height:65px;
+  padding:14px;
+  overscroll-behavior:contain;
+  background:#626B3B;
+}.message{
   line-height:1.55;
   padding:12px 14px;
-  border:1px solid #626B3B;
+  border:1px solid #DCDAD1;
   border-radius:9px;
   margin:0 20px 12px 0;
   white-space:pre-wrap;
   overflow-wrap:anywhere;
-  background:#626B3B;
-  color:#F7F6F2;
+  background:#F7F6F2;
+  color:#00132D;
 }
 .message.user{
   margin:0 0 12px 20px;
@@ -81,21 +87,21 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
 }.message strong{display:block;font-size:11px;opacity:.8;margin-bottom:4px}
 .message-mascot{
   display:inline-block;
-  width:38px;
-  height:20px;
+  width:42px;
+  height:22px;
   object-fit:contain;
   vertical-align:middle;
-  margin:0 3px 2px 0;
+  margin:0 2px 1px 0;
 }
 .response-prefix{
   display:inline-flex;
   align-items:center;
   vertical-align:middle;
-  margin-right:5px;
+  margin-right:4px;
 }
 .response-colon{
   font-weight:600;
-  margin-left:1px;
+  margin-left:0;
 }
 .message a{color:inherit;text-decoration:underline}
  .controls{padding:12px;border-top:1px solid #DCDAD1;min-height:0;overflow-y:auto;overscroll-behavior:contain;background:rgba(98,107,59,0.04)}.status{font-size:12px;line-height:1.4;color:#9C5A3C;min-height:18px;margin:0 0 8px}.entry{display:flex;gap:8px}input[type=text]{width:100%;min-width:0;border:1px solid #DCDAD1;border-radius:7px;background:white;color:#00132D;padding:10px;font-size:16px}.send{border:0;border-radius:7px;background:#9C5A3C;color:white;padding:10px}
