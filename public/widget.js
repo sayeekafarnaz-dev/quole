@@ -61,7 +61,7 @@ header{
 }
 
 h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color:#8A8474}header button,.clear{border:1px solid #DCDAD1;background:transparent;border-radius:6px;color:#00132D;min-height:34px;padding:5px 8px}
- .messages-wrap{position:relative;flex:1;min-height:0;background:#626B3B}
+ .messages-wrap{position:relative;flex:1;min-height:0;background:#F5F5EF}
 .message-tools{
   position:absolute;
   right:10px;
@@ -94,7 +94,7 @@ h2{font:21px 'DM Serif Display',Georgia,serif;margin:0;line-height:1}small{color
   min-height:65px;
   padding:14px 14px 52px;
   overscroll-behavior:contain;
-  background:#626B3B;
+  background:rgba(98,107,59,0.06);
 }.message{
   line-height:1.55;
   padding:12px 14px;
