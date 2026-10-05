@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: quole
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        sync: false
+      - key: TURNSTILE_SITE_KEY
+        sync: false
+      - key: TURNSTILE_SECRET_KEY
+        sync: false
+      - key: QUOLE_ORIGINS
+        value: '{"https://qlogue.com":"qlogue","https://www.qlogue.com":"qlogue","https://adubio.ai":"adubio","https://www.adubio.ai":"adubio","https://pruque.com":"pruque","https://www.pruque.com":"pruque"}'
+      - key: QUOLE_PUBLIC_READY
+        value: 'true'
+      - key: QUOLE_PRIVACY_URL
+        sync: false
+      - key: QUOLE_REQUESTS_PER_MINUTE
+        value: '10'
+      - key: QUOLE_DAILY_REQUESTS
+        value: '500'
