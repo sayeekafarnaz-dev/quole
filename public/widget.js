@@ -40,6 +40,9 @@
 
  .launcher{
   display:block;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .15s ease;
   margin-left:auto;
   border:0;
   background:transparent;
@@ -55,6 +58,11 @@
   object-fit:contain;
   display:block;
   transition:transform .18s ease;
+ }
+
+ .launcher.ready{
+  opacity:1;
+  visibility:visible;
  }
 
  .launcher:hover img{
@@ -378,7 +386,7 @@
  <p class="notice">AI-generated. Please don’t share confidential information.</p>
  <label class="consent consent-bottom"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label>
  </form></div></section>
- <button type="button" class="launcher" aria-label="Open assistant" aria-expanded="false"><span class="placeholder">DEV PLACEHOLDER<br>Replace with original Quole asset</span></button>`;
+ <button type="button" class="launcher" aria-label="Open assistant" aria-expanded="false"><span class="placeholder" aria-hidden="true"></span></button>`;
  const $=sel=>shadow.querySelector(sel);
  const panel=$('.panel'), launcher=$('.launcher'), log=$('.messages'), status=$('.status'), input=$('input[type=text]'), consent=$('input[type=checkbox]');
  const safeUrl=value=>{try{const url=new URL(value,endpoint);return ['https:','http:'].includes(url.protocol)?url.href:null;}catch{return null;}};
@@ -475,9 +483,14 @@
    const src=safeUrl(config.assetUrl);
    if(src){
     const launcherImg=document.createElement('img');
-    launcherImg.alt='Quole glasses';
+    launcherImg.alt='';
+    launcherImg.onload=()=>{
+      launcher.classList.add('ready');
+    };
+    launcherImg.onerror=()=>{
+      launcher.classList.remove('ready');
+    };
     launcherImg.src=src;
-    launcherImg.onerror=()=>{status.textContent='Quole character could not load.';};
     $('.placeholder').replaceWith(launcherImg);
 
     const headerSlot=$('.header-mascot-slot');
