@@ -295,8 +295,8 @@
  }
 
  .notice{
-  font-size:8.5px;
-  line-height:1.2;
+  font-size:10px;
+  line-height:1.3;
   color:#6F6A5E;
   margin:5px 0 3px;
  }
@@ -383,10 +383,10 @@
  </div>
 </div>
  <div class="controls"><p class="status" role="status"></p><div class="challenge"></div><form><div class="entry"><input type="text" maxlength="2000" placeholder="Ask anything..." aria-label="Message" required><button class="send" type="submit">Send</button></div>
- <p class="notice">AI-generated. Please don’t share confidential information.</p>
+ <p class="notice">AI-generated. Please don't share confidential, personal or client information.</p>
  <label class="consent consent-bottom"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label>
  </form></div></section>
- <button type="button" class="launcher" aria-label="Open assistant" aria-expanded="false"><span class="placeholder" aria-hidden="true"></span></button>`;
+ <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="placeholder" aria-hidden="true"></span></button>`;
  const $=sel=>shadow.querySelector(sel);
  const panel=$('.panel'), launcher=$('.launcher'), log=$('.messages'), status=$('.status'), input=$('input[type=text]'), consent=$('input[type=checkbox]');
  const safeUrl=value=>{try{const url=new URL(value,endpoint);return ['https:','http:'].includes(url.protocol)?url.href:null;}catch{return null;}};

@@ -96,8 +96,7 @@ export function createApp(env = process.env, request = fetch) {
     signal:AbortSignal.timeout(25000)
    });
    if (!response.ok) {
-     const providerError = await response.text();
-     console.error('Gemini API error', response.status, providerError);
+     console.error('Gemini API request failed', response.status);
      throw new Error(`Gemini API ${response.status}`);
    }
    const output=await response.json();
@@ -105,7 +104,7 @@ export function createApp(env = process.env, request = fetch) {
    if(!answer) throw new Error('Empty provider response');
    send(200,{answer});
   } catch (error) {
-    console.error('Quole AI error:', error?.message || error);
+    console.error('Quole AI request failed');
     send(503,{error:'Quole’s AI service is unavailable. Please email enquiries@qlogue.com.'});
   }
   finally {active--;}
