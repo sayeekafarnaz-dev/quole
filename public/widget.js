@@ -65,11 +65,6 @@
   visibility:visible;
  }
 
- .welcome-nudge{position:absolute;right:0;bottom:64px;width:min(260px,calc(100vw - 36px));padding:12px 34px 12px 14px;background:#F7F6F2;color:#00132D;border:1px solid rgba(0,19,45,.16);border-radius:13px 13px 3px 13px;box-shadow:0 9px 30px rgba(0,19,45,.14);font-size:13px;line-height:1.4;text-align:left}
- .welcome-nudge[hidden]{display:none}
- .welcome-nudge strong{display:block;margin-bottom:3px}
- .welcome-ask{border:0;padding:2px 0;background:transparent;color:#626B3B;font-size:12px;font-weight:700;text-decoration:underline}
- .welcome-close{position:absolute;right:7px;top:6px;border:0;background:transparent;color:#00132D;padding:4px 7px;font-size:16px;line-height:1}
  .launcher.intro-hop img{animation:quole-hello-hop .7s ease-out 1}
  @keyframes quole-hello-hop{0%,100%{transform:translateY(0) rotate(0deg)}28%{transform:translateY(-14px) rotate(-6deg)}55%{transform:translateY(0) rotate(4deg)}73%{transform:translateY(-5px) rotate(-2deg)}}
   .launcher:hover img{
@@ -393,7 +388,6 @@
  <p class="notice">AI-generated. Please don't share confidential, personal or client information.</p>
  <label class="consent consent-bottom"><input type="checkbox" required> <span>I agree to send my messages to Qlogue’s external AI processor. <a class="privacy" target="_blank" rel="noopener noreferrer">Privacy information</a></span></label>
  </form></div></section>
- <div class="welcome-nudge" hidden aria-label="Meet Quole"><button type="button" class="welcome-close" aria-label="Dismiss Quole introduction">×</button><strong>Hi, I’m Quole 👋</strong>Your Qlogue chatbot assistant.<div><button type="button" class="welcome-ask">Ask me a question</button></div></div>
  <button type="button" class="launcher" aria-label="Ask Quole" aria-expanded="false"><span class="placeholder" aria-hidden="true"></span></button>`;
  const $=sel=>shadow.querySelector(sel);
  const panel=$('.panel'), launcher=$('.launcher'), log=$('.messages'), status=$('.status'), input=$('input[type=text]'), consent=$('input[type=checkbox]');
@@ -436,22 +430,15 @@
   for(const m of history)add(m.role,m.content);
 }
  function expire(){if(Date.now()-lastActive>=ttl){history=[];try{sessionStorage.removeItem(key);}catch{}render();status.textContent='Conversation cleared after 30 minutes of inactivity.';lastActive=Date.now();}}
- const nudge=$('.welcome-nudge');
- let nudgeTimer;
- function dismissNudge(){nudge.hidden=true;if(nudgeTimer)clearTimeout(nudgeTimer);}
  function introduce(){
   if(site!=='qlogue' || !panel.hidden || !launcher.classList.contains('ready'))return;
-  nudge.hidden=false;
   if(!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){
    launcher.classList.remove('intro-hop');
    void launcher.offsetWidth;
    launcher.classList.add('intro-hop');
   }
-  nudgeTimer=setTimeout(dismissNudge,8500);
  }
- function toggle(open){dismissNudge();expire();panel.hidden=!open;root.classList.toggle('open',open);launcher.setAttribute('aria-expanded',String(open));if(open){input.focus();}else launcher.focus();}
- $('.welcome-close').addEventListener('click',dismissNudge);
- $('.welcome-ask').addEventListener('click',()=>toggle(true));
+ function toggle(open){expire();panel.hidden=!open;root.classList.toggle('open',open);launcher.setAttribute('aria-expanded',String(open));if(open){input.focus();}else launcher.focus();}
  launcher.addEventListener('click',()=>toggle(panel.hidden));$('.close').addEventListener('click',()=>toggle(false));
  shadow.addEventListener('keydown',e=>{if(e.key==='Escape' && !panel.hidden){e.preventDefault();toggle(false);}});
  $('.clear').addEventListener('click',()=>{
