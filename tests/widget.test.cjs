@@ -28,3 +28,31 @@ test('error preserves input and avoids storing failed turns',async()=>{const f=a
 test('model markup remains text and unsafe URLs are not linked',async()=>{const answer='<img src=x onerror=alert(1)><script>alert(1)</script><b>bold</b> https://evil.example/phish';const f=await fixture('qlogue',{answer});try{await send(f,'hello');const responses=f.shadow.querySelectorAll('.message.assistant');const response=responses[responses.length-1];const prefix=response.querySelector('.response-prefix');assert.ok(prefix);assert.equal(prefix.querySelector('.message-mascot').getAttribute('src'),'http://localhost:4310/quole.png');assert.equal(response.querySelectorAll('img').length,1);assert.equal(response.querySelector('script, b'),null);assert.ok(Array.from(response.childNodes).slice(1).every(node=>node.nodeType===f.w.Node.TEXT_NODE));assert.equal(f.$('a[href="https://evil.example/phish"]'),null);assert.ok(response.textContent.includes(answer));}finally{f.dom.window.close();}});
 test('supplied asset uses the accessible launcher name without redundant image alt text',async()=>{const f=await fixture('qlogue',{asset:'https://assets.example/original-quole.svg'});try{assert.equal(f.$('.placeholder'),null);assert.equal(f.$('.launcher img').src,'https://assets.example/original-quole.svg');assert.equal(f.$('.launcher img').alt,'');assert.equal(f.$('.launcher').getAttribute('aria-label'),'Ask Quole');}finally{f.dom.window.close();}});
 test('styles include fixed desktop placement, mobile safe areas and reduced motion',async()=>{const f=await fixture();try{const css=f.$('style').textContent;assert.match(css,/position\s*:\s*fixed/);assert.match(css,/right\s*:\s*24px/);assert.match(css,/bottom\s*:\s*24px/);assert.match(css,/safe-area-inset-bottom/);assert.match(css,/prefers-reduced-motion\s*:\s*reduce/);assert.match(css,/100dvh/);}finally{f.dom.window.close();}});
+
+
+test('Qlogue launcher offers a dismissible Quole welcome without auto-opening chat',async()=>{
+ const f=await fixture('qlogue');
+ try {
+  const nudge=f.$('.welcome-nudge');
+  assert.ok(nudge);
+  assert.equal(nudge.hidden,true);
+  assert.match(nudge.textContent,/Hi, I’m Quole/);
+  assert.equal(f.$('.panel').hidden,true);
+  assert.match(f.$('style').textContent,/prefers-reduced-motion:reduce/);
+  // Simulate the verified mascot asset loading, which triggers the introduction.
+  f.$('.launcher img').dispatchEvent(new f.w.Event('load'));
+  assert.equal(nudge.hidden,false);
+  assert.equal(f.$('.launcher').classList.contains('intro-hop'),true);
+  f.$('.welcome-close').click();
+  assert.equal(nudge.hidden,true);
+  f.$('.launcher img').dispatchEvent(new f.w.Event('load'));
+  f.$('.welcome-ask').click();
+  assert.equal(f.$('.panel').hidden,false);
+  assert.equal(nudge.hidden,true);
+ } finally {f.dom.window.close();}
+ const other=await fixture('adubio');
+ try {
+  other.$('.launcher img').dispatchEvent(new other.w.Event('load'));
+  assert.equal(other.$('.welcome-nudge').hidden,true);
+ } finally {other.dom.window.close();}
+});
