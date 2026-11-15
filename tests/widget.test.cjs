@@ -30,29 +30,21 @@ test('supplied asset uses the accessible launcher name without redundant image a
 test('styles include fixed desktop placement, mobile safe areas and reduced motion',async()=>{const f=await fixture();try{const css=f.$('style').textContent;assert.match(css,/position\s*:\s*fixed/);assert.match(css,/right\s*:\s*24px/);assert.match(css,/bottom\s*:\s*24px/);assert.match(css,/safe-area-inset-bottom/);assert.match(css,/prefers-reduced-motion\s*:\s*reduce/);assert.match(css,/100dvh/);}finally{f.dom.window.close();}});
 
 
-test('Qlogue launcher offers a dismissible Quole welcome without auto-opening chat',async()=>{
+test('Quole gives one playful hop on Qlogue load without any pop-up bubble',async()=>{
  const f=await fixture('qlogue');
  try {
-  const nudge=f.$('.welcome-nudge');
-  assert.ok(nudge);
-  assert.equal(nudge.hidden,true);
-  assert.match(nudge.textContent,/Hi, I’m Quole/);
+  assert.equal(f.$('.welcome-nudge'),null);
   assert.equal(f.$('.panel').hidden,true);
   assert.match(f.$('style').textContent,/prefers-reduced-motion:reduce/);
-  // Simulate the verified mascot asset loading, which triggers the introduction.
   f.$('.launcher img').dispatchEvent(new f.w.Event('load'));
-  assert.equal(nudge.hidden,false);
   assert.equal(f.$('.launcher').classList.contains('intro-hop'),true);
-  f.$('.welcome-close').click();
-  assert.equal(nudge.hidden,true);
-  f.$('.launcher img').dispatchEvent(new f.w.Event('load'));
-  f.$('.welcome-ask').click();
+  assert.equal(f.$('.panel').hidden,true);
+  f.$('.launcher').click();
   assert.equal(f.$('.panel').hidden,false);
-  assert.equal(nudge.hidden,true);
  } finally {f.dom.window.close();}
  const other=await fixture('adubio');
  try {
   other.$('.launcher img').dispatchEvent(new other.w.Event('load'));
-  assert.equal(other.$('.welcome-nudge').hidden,true);
+  assert.equal(other.$('.launcher').classList.contains('intro-hop'),false);
  } finally {other.dom.window.close();}
 });
